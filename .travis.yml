@@ -9,3 +9,8 @@ node_js:
 
 services:
   - mongodb
+
+notifications:
+  email:
+    - duongtd@sololab.net
+    - laituan245@gmail.com
