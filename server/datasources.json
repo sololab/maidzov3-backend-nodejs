@@ -1,19 +1,15 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
   "mongodb": {
     "database": "maidzo",
     "name": "mongodb",
     "connector": "mongodb"
   },
-  "mysqlserverdb": {
+  "mysql": {
     "host": "localhost",
     "database": "maidzo",
-    "username": "root",
     "password": "maidzo123",
-    "name": "mysqlserverdb",
+    "name": "mysql",
+    "user": "root",
     "connector": "mysql"
   }
 }

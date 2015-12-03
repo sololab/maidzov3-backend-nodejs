@@ -1,5 +1,5 @@
 var app = require('../server');
-var dataSource = app.dataSources.sqlserverdb;
+var dataSource = app.dataSources.mysql;
 var User = app.models.user;
 var users = [
     {
