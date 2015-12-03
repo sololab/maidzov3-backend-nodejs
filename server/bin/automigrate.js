@@ -11,6 +11,16 @@ var users = [
       emailVerified: false,
       created: new Date(),
       lastUpdated: new Date()
+    },
+    {
+      firstName: 'Duong',
+      lastName: 'Truong',
+      username: 'duongtd',
+      password: '123456',
+      email: 'duongtd@sololab.net',
+      emailVerified: false,
+      created: new Date(),
+      lastUpdated: new Date()
     }
   ];
 

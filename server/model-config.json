@@ -34,7 +34,7 @@
     "public": false
   },
   "user": {
-    "dataSource": "sqlserverdb",
+    "dataSource": "mysqlserverdb",
     "public": true
   }
 }

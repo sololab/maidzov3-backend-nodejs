@@ -8,12 +8,12 @@
     "name": "mongodb",
     "connector": "mongodb"
   },
-  "sqlserverdb": {
+  "mysqlserverdb": {
     "host": "localhost",
     "database": "maidzo",
     "username": "root",
     "password": "maidzo123",
-    "name": "sqlserverdb",
+    "name": "mysqlserverdb",
     "connector": "mysql"
   }
 }
