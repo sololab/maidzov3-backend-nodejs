@@ -32,5 +32,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "user": {
+    "dataSource": "sqlserverdb",
+    "public": true
   }
 }
