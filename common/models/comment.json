@@ -17,6 +17,13 @@
     "isVerified": {
       "type": "boolean",
       "required": true
+    },
+    "postId": {
+      "type": "number",
+      "required": true
+    },
+    "created": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -24,7 +31,7 @@
     "post": {
       "type": "belongsTo",
       "model": "Post",
-      "foreignKey": ""
+      "foreignKey": "postId"
     }
   },
   "acls": [
@@ -33,6 +40,25 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

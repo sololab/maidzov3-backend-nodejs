@@ -20,6 +20,20 @@
     },
     "image": {
       "type": "string"
+    },
+    "categoryId": {
+      "type": "number",
+      "required": "true"
+    },
+    "authorId": {
+      "type": "number",
+      "required": "true"
+    },
+    "created": {
+      "type": "date"
+    },
+    "lastUpdated": {
+      "type": "date"
     }
   },
   "validations": [],
@@ -32,12 +46,12 @@
     "author": {
       "type": "belongsTo",
       "model": "Author",
-      "foreignKey": ""
+      "foreignKey": "authorId"
     },
     "category": {
       "type": "belongsTo",
       "model": "Category",
-      "foreignKey": ""
+      "foreignKey": "categoryId"
     },
     "comments": {
       "type": "hasMany",
@@ -51,6 +65,31 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "blogAuthor",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
