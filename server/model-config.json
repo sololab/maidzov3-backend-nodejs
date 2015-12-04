@@ -33,10 +33,6 @@
     "dataSource": "mysql",
     "public": false
   },
-  "user": {
-    "dataSource": "mysql",
-    "public": true
-  },
   "Category": {
     "dataSource": "mysql",
     "public": true
@@ -51,7 +47,9 @@
   },
   "Comment": {
     "dataSource": "mysql",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "Author": {
     "dataSource": "mysql",
