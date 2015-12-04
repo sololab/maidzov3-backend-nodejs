@@ -28,6 +28,12 @@
     "authorId": {
       "type": "number",
       "required": "true"
+    },
+    "created": {
+      "type": "date"
+    },
+    "lastUpdated": {
+      "type": "date"
     }
   },
   "validations": [],

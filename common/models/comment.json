@@ -21,6 +21,9 @@
     "postId": {
       "type": "number",
       "required": true
+    },
+    "created": {
+      "type": "date"
     }
   },
   "validations": [],
