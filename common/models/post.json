@@ -20,6 +20,14 @@
     },
     "image": {
       "type": "string"
+    },
+    "categoryId": {
+      "type": "number",
+      "required": "true"
+    },
+    "authorId": {
+      "type": "number",
+      "required": "true"
     }
   },
   "validations": [],
@@ -32,12 +40,12 @@
     "author": {
       "type": "belongsTo",
       "model": "Author",
-      "foreignKey": ""
+      "foreignKey": "authorId"
     },
     "category": {
       "type": "belongsTo",
       "model": "Category",
-      "foreignKey": ""
+      "foreignKey": "categoryId"
     },
     "comments": {
       "type": "hasMany",

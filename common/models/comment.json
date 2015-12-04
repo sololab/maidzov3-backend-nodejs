@@ -17,6 +17,10 @@
     "isVerified": {
       "type": "boolean",
       "required": true
+    },
+    "postId": {
+      "type": "number",
+      "required": true
     }
   },
   "validations": [],
@@ -24,7 +28,7 @@
     "post": {
       "type": "belongsTo",
       "model": "Post",
-      "foreignKey": ""
+      "foreignKey": "postId"
     }
   },
   "acls": [
@@ -39,6 +43,13 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "create"
     }
   ],
   "methods": {}
