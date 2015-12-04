@@ -23,7 +23,28 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "tags": {
+      "type": "hasMany",
+      "model": "tag",
+      "foreignKey": ""
+    },
+    "author": {
+      "type": "belongsTo",
+      "model": "author",
+      "foreignKey": ""
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": ""
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "comment",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
