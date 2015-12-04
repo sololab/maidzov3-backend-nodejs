@@ -1,1 +1,1 @@
-// Seed for Users and Rols
+// Seed for Users and Roles
