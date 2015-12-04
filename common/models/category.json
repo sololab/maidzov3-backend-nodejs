@@ -1,5 +1,5 @@
 {
-  "name": "category",
+  "name": "Category",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -25,7 +25,7 @@
   "relations": {
     "posts": {
       "type": "hasMany",
-      "model": "post",
+      "model": "Post",
       "foreignKey": ""
     }
   },

@@ -1,5 +1,5 @@
 {
-  "name": "post",
+  "name": "Post",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -26,22 +26,22 @@
   "relations": {
     "tags": {
       "type": "hasMany",
-      "model": "tag",
+      "model": "Tag",
       "foreignKey": ""
     },
     "author": {
       "type": "belongsTo",
-      "model": "author",
+      "model": "Author",
       "foreignKey": ""
     },
     "category": {
       "type": "belongsTo",
-      "model": "category",
+      "model": "Category",
       "foreignKey": ""
     },
     "comments": {
       "type": "hasMany",
-      "model": "comment",
+      "model": "Comment",
       "foreignKey": ""
     }
   },
