@@ -9,6 +9,14 @@
     "content": {
       "type": "string",
       "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "isVerified": {
+      "type": "boolean",
+      "required": true
     }
   },
   "validations": [],
@@ -16,16 +24,6 @@
     "post": {
       "type": "belongsTo",
       "model": "Post",
-      "foreignKey": ""
-    },
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": ""
-    },
-    "author": {
-      "type": "belongsTo",
-      "model": "Author",
       "foreignKey": ""
     }
   },
