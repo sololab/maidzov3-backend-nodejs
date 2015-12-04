@@ -1,25 +1,26 @@
 {
-  "name": "user",
+  "name": "author",
   "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "firstName": {
-      "type": "string",
-      "required": true
+    "about": {
+      "type": "string"
     },
-    "lastName": {
-      "type": "string",
-      "required": true
+    "facebook": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "comments": {
+    "posts": {
       "type": "hasMany",
-      "model": "comment",
+      "model": "post",
       "foreignKey": ""
     }
   },

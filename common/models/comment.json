@@ -1,25 +1,26 @@
 {
-  "name": "user",
-  "base": "User",
+  "name": "comment",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "firstName": {
-      "type": "string",
-      "required": true
-    },
-    "lastName": {
+    "content": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "comments": {
-      "type": "hasMany",
-      "model": "comment",
+    "post": {
+      "type": "belongsTo",
+      "model": "post",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
       "foreignKey": ""
     }
   },

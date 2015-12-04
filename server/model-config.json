@@ -36,5 +36,25 @@
   "user": {
     "dataSource": "mysqlserverdb",
     "public": true
+  },
+  "category": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "tag": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "post": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "comment": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "author": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

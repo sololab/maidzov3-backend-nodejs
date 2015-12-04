@@ -1,28 +1,28 @@
 {
-  "name": "user",
-  "base": "User",
+  "name": "tag",
+  "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "firstName": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "lastName": {
+    "slug": {
       "type": "string",
       "required": true
+    },
+    "created": {
+      "type": "date"
+    },
+    "lastUpdated": {
+      "type": "date"
     }
   },
   "validations": [],
-  "relations": {
-    "comments": {
-      "type": "hasMany",
-      "model": "comment",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

@@ -1,3 +1,9 @@
+/* WARNING:
+    The call to dataSource.automigrate() at line 34 creates or recreates
+    the table in MySQL based on the model definition for user. Note this
+    function will drop the table if it exists and your data will be lost
+*/
+
 var app = require('../server');
 var dataSource = app.dataSources.mysql;
 var User = app.models.user;
