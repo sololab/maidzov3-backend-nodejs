@@ -37,24 +37,24 @@
     "dataSource": "mysql",
     "public": true
   },
-  "category": {
-    "dataSource": "mongodb",
+  "Category": {
+    "dataSource": "mysql",
     "public": true
   },
-  "tag": {
-    "dataSource": "mongodb",
+  "Tag": {
+    "dataSource": "mysql",
     "public": true
   },
-  "post": {
-    "dataSource": "mongodb",
+  "Post": {
+    "dataSource": "mysql",
     "public": true
   },
-  "comment": {
-    "dataSource": "mongodb",
+  "Comment": {
+    "dataSource": "mysql",
     "public": true
   },
-  "author": {
-    "dataSource": "mongodb",
+  "Author": {
+    "dataSource": "mysql",
     "public": true
   }
 }

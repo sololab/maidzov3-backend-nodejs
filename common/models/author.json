@@ -1,5 +1,5 @@
 {
-  "name": "author",
+  "name": "Author",
   "base": "User",
   "idInjection": true,
   "options": {
@@ -20,7 +20,12 @@
   "relations": {
     "posts": {
       "type": "hasMany",
-      "model": "post",
+      "model": "Post",
+      "foreignKey": ""
+    },
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
       "foreignKey": ""
     }
   },

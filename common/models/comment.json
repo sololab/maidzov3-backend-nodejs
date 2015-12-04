@@ -1,5 +1,5 @@
 {
-  "name": "comment",
+  "name": "Comment",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -15,12 +15,17 @@
   "relations": {
     "post": {
       "type": "belongsTo",
-      "model": "post",
+      "model": "Post",
       "foreignKey": ""
     },
     "user": {
       "type": "belongsTo",
       "model": "user",
+      "foreignKey": ""
+    },
+    "author": {
+      "type": "belongsTo",
+      "model": "Author",
       "foreignKey": ""
     }
   },
