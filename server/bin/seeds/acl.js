@@ -12,6 +12,15 @@ Role.create({
   console.log('Created role:', role);
 });
 
+//create the blogAuthor role
+Role.create({
+  name: 'blogAuthor'
+}, function(err, role) {
+  if (err) throw err;
+  console.log('Created role:', role);
+});
+
+
 //create the member role
 Role.create({
   name: 'member'

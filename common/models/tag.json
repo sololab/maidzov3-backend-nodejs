@@ -35,6 +35,13 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "blogAuthor",
+      "permission": "ALLOW",
+      "property": "create"
     }
   ],
   "methods": {}
