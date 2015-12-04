@@ -42,6 +42,12 @@
       "principalId": "blogAuthor",
       "permission": "ALLOW",
       "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
