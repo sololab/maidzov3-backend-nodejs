@@ -21,14 +21,6 @@
     "image": {
       "type": "string"
     },
-    "categoryId": {
-      "type": "number",
-      "required": "true"
-    },
-    "authorId": {
-      "type": "number",
-      "required": "true"
-    },
     "created": {
       "type": "date"
     },
@@ -43,19 +35,19 @@
       "model": "Tag",
       "foreignKey": ""
     },
-    "author": {
-      "type": "belongsTo",
-      "model": "Author",
-      "foreignKey": "authorId"
-    },
     "category": {
       "type": "belongsTo",
       "model": "Category",
-      "foreignKey": "categoryId"
+      "foreignKey": ""
     },
     "comments": {
       "type": "hasMany",
       "model": "Comment",
+      "foreignKey": ""
+    },
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
       "foreignKey": ""
     }
   },

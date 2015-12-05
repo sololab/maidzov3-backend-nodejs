@@ -1,11 +1,15 @@
 {
-  "name": "Author",
+  "name": "Client",
   "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "clientId": {
+      "type": "number",
+      "required": true
+    },
     "about": {
       "type": "string"
     },
@@ -17,25 +21,13 @@
     }
   },
   "validations": [],
-  "relations": {
-    "posts": {
-      "type": "hasMany",
-      "model": "Post",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
     },
     {
       "accessType": "*",
