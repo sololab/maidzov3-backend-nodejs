@@ -28,20 +28,25 @@ module.exports = function(Client) {
     );
     deasync.loopWhile(function(){return !done;});
 
+    next();
+  });
+
+
+  Client.afterRemote('create', function(context, user, next) {
+    var counterDb = db.models.Counter;
+    var tmpId = user._id;
+    var tmpClientId = user.clientId;
 
     // Increase the counter for clientId
-    done = false;
+    var done = false;
     counterDb.updateAll(
       {_id: tmpId},
-      {_id: tmpId, name: 'clientId', seq: 1 + req.body.clientId},
+      {_id: tmpId, name: 'clientId', seq: 1 + tmpClientId},
       function(err, obj) {
         done = true;
       }
     );
     deasync.loopWhile(function(){return !done;});
-
-
-    console.log(JSON.stringify(req.body));
 
     next();
   });
