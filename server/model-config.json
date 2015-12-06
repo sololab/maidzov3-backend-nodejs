@@ -55,6 +55,6 @@
   },
   "Counter": {
     "dataSource": "mongodb",
-    "public": true
+    "public": false
   }
 }
