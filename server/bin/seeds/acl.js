@@ -20,7 +20,6 @@ Role.create({
   console.log('Created role:', role);
 });
 
-
 //create the member role
 Role.create({
   name: 'member'
