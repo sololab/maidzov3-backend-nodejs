@@ -33,6 +33,22 @@ module.exports = function(Client) {
 
 
   Client.afterRemote('create', function(context, user, next) {
+    // Initialize the role of each new client to be 'member'
+    var Role = server.models.Role;
+    var RoleMapping = server.models.RoleMapping;
+    Role.findOne(
+      {where: {name: 'member'}},
+      function(err, role) {
+        role.principals.create({
+          principalType: RoleMapping.USER,
+          principalId: user.id
+        }, function(err, principal) {
+          if (err) throw err;
+          console.log('Created principal:', principal);
+        });
+      }
+    );
+
     var counterDb = db.models.Counter;
     var tmpId = user.id;
 
