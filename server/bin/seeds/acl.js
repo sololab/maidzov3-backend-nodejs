@@ -14,7 +14,7 @@ Role.create({
   // create an admin 'client'
   Client.create([
     {
-      clientId: 0,
+      id: 1,
       firstName: 'Maidzo',
       lastName: 'Maidzo',
       username: 'admin',

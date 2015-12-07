@@ -22,7 +22,7 @@ module.exports = function(Client) {
       {fields: ['_id', 'seq'], where: {name: 'clientId'}},
       function(err, returnedInstances) {
         tmpId = returnedInstances._id;
-        req.body.clientId = returnedInstances.seq;
+        req.body.id = returnedInstances.seq;
         done = true;
       }
     );
@@ -34,14 +34,13 @@ module.exports = function(Client) {
 
   Client.afterRemote('create', function(context, user, next) {
     var counterDb = db.models.Counter;
-    var tmpId = user._id;
-    var tmpClientId = user.clientId;
+    var tmpId = user.id;
 
     // Increase the counter for clientId
     var done = false;
     counterDb.updateAll(
-      {_id: tmpId},
-      {_id: tmpId, name: 'clientId', seq: 1 + tmpClientId},
+      {name: 'clientId'},
+      {name: 'clientId', seq: 1 + tmpId},
       function(err, obj) {
         done = true;
       }
