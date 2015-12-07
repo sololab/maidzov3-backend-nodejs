@@ -120,8 +120,8 @@ module.exports = function(Client) {
             err.status = 400;
             return next(err);
           }
+          context.args.newRole = role.id;
           done = true;
-          req.body.newRole = role.id;
         }
       );
       deasync.loopWhile(function(){return !done;});
@@ -139,7 +139,6 @@ module.exports = function(Client) {
         }
       );
       deasync.loopWhile(function(){return !done;});
-
       next();
     }
   });
