@@ -43,7 +43,7 @@ module.exports = function(Client) {
           principalType: RoleMapping.USER,
           principalId: user.id
         }, function(err, principal) {
-          if (err) throw err;
+          if (err) next(err);
           console.log('Created principal:', principal);
         });
       }
@@ -68,26 +68,9 @@ module.exports = function(Client) {
 
 
   // This remote method is for updating the role of a client
-  Client.updateRole = function(clientId, newRole, cb) {
+  Client.updateRole = function(clientId, newRoleId, cb) {
     var Role = server.models.Role;
     var RoleMapping = server.models.RoleMapping;
-
-
-    // Find the object id of the role with name = newRole
-    var roleId = null;
-    var done = false;
-    Role.findOne(
-      {where: {name: newRole}},
-      function(err, role) {
-        if (err)
-          return cb(null, err);
-        else
-          roleId = role.id;
-        done = true;
-      }
-    );
-    deasync.loopWhile(function(){return !done;});
-
 
     // Update the related role mapping
     RoleMapping.findOne(
@@ -98,7 +81,7 @@ module.exports = function(Client) {
         else {
           RoleMapping.updateAll(
             {principalId: parseInt(clientId)},
-            {roleId: roleId},
+            {roleId: newRoleId},
             function(err, obj) {
               if (err)
                 return cb(null,err);
@@ -109,6 +92,7 @@ module.exports = function(Client) {
       }
     );
   };
+
 
   Client.beforeRemote('updateRole', function(context, user, next) {
     var req = context.req;
@@ -137,10 +121,10 @@ module.exports = function(Client) {
             return next(err);
           }
           done = true;
+          req.body.newRole = role.id;
         }
       );
       deasync.loopWhile(function(){return !done;});
-
 
       done = false;
       Client.findOne(
@@ -160,14 +144,14 @@ module.exports = function(Client) {
     }
   });
 
+
   Client.remoteMethod(
     'updateRole',
     {
       description: 'Update the role of a client',
       accepts: [{arg: 'id', type: 'string'}, {arg: 'newRole', type: 'string'}],
       returns: {arg: 'message', type: 'string'},
-      http: {status: 200},
+      http: {status: 200, errorStatus: 400},
     }
   );
-
 };
