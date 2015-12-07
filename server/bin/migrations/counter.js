@@ -2,7 +2,8 @@ var server = require('../../server');
 var db = server.dataSources.mongodb;
 var counterDb = db.models.Counter;
 
-counterDb.create({name: 'clientId', seq: 1}, function (err, obj) {
+// Admin has clientId 1
+counterDb.create({name: 'clientId', seq: 2}, function (err, obj) {
   if (err) {
     console.log(err);
     return;
