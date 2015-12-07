@@ -110,6 +110,55 @@ module.exports = function(Client) {
     );
   };
 
+  Client.beforeRemote('updateRole', function(context, user, next) {
+    var req = context.req;
+    var err = null;
+    if (!req.body.id) {
+      err = new Error('Must specify the id of the user');
+      err.status = 400;
+      next(err);
+    }
+    else if (!req.body.newRole) {
+      err = new Error('Must specify the new role for the user');
+      err.status = 400;
+      next(err);
+    }
+    else {
+      var Client = server.models.Client;
+      var Role = server.models.Role;
+
+      var done = false;
+      Role.findOne(
+        {where: {name: req.body.newRole}},
+        function(err, role) {
+          if (err || !role) {
+            err = new Error(req.body.newRole + ' is not a valid role');
+            err.status = 400;
+            return next(err);
+          }
+          done = true;
+        }
+      );
+      deasync.loopWhile(function(){return !done;});
+
+
+      done = false;
+      Client.findOne(
+        {where: {_id: parseInt(req.body.id)}},
+        function(err, client) {
+          if (err || !client) {
+            err = new Error('There is no client with id ' + req.body.id);
+            err.status = 400;
+            return next(err);
+          }
+          done = true;
+        }
+      );
+      deasync.loopWhile(function(){return !done;});
+
+      next();
+    }
+  });
 
   Client.remoteMethod(
     'updateRole',
