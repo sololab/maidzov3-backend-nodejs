@@ -18,10 +18,6 @@
       "type": "boolean",
       "required": true
     },
-    "postId": {
-      "type": "number",
-      "required": true
-    },
     "created": {
       "type": "date"
     }
@@ -31,7 +27,7 @@
     "post": {
       "type": "belongsTo",
       "model": "Post",
-      "foreignKey": "postId"
+      "foreignKey": ""
     }
   },
   "acls": [
