@@ -1,6 +1,6 @@
 // Migrate blog database table
 var server = require('../../server');
-var ds = server.dataSources.mysql;
+var ds = server.dataSources.mongodb;
 var Author = require('../../../common/models/author.json');
 var Category = require('../../../common/models/category.json');
 var Post = require('../../../common/models/post.json');
