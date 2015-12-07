@@ -1,5 +1,11 @@
 {
   "loopback-component-explorer": {
-    "mountPath": "/explorer"
+    "mountPath": "/explorer",
+    "apiInfo": {
+      "title": "API Explorer"
+    },
+    "uiDirs": [
+      "server/explorer"
+    ]
   }
 }
