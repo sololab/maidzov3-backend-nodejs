@@ -65,4 +65,60 @@ module.exports = function(Client) {
 
     next();
   });
+
+
+  // This remote method is for updating the role of a client
+  Client.updateRole = function(clientId, newRole, cb) {
+    var Role = server.models.Role;
+    var RoleMapping = server.models.RoleMapping;
+
+
+    // Find the object id of the role with name = newRole
+    var roleId = null;
+    var done = false;
+    Role.findOne(
+      {where: {name: newRole}},
+      function(err, role) {
+        if (err)
+          return cb(null, err);
+        else
+          roleId = role.id;
+        done = true;
+      }
+    );
+    deasync.loopWhile(function(){return !done;});
+
+
+    // Update the related role mapping
+    RoleMapping.findOne(
+      {where: {principalId: parseInt(clientId)}},
+      function(err, roleMapping) {
+        if (err)
+          return cb(null, err);
+        else {
+          RoleMapping.updateAll(
+            {principalId: parseInt(clientId)},
+            {roleId: roleId},
+            function(err, obj) {
+              if (err)
+                return cb(null,err);
+              return cb(null,'Updated the user\'s role');
+            }
+          );
+        }
+      }
+    );
+  };
+
+
+  Client.remoteMethod(
+    'updateRole',
+    {
+      description: 'Update the role of a client',
+      accepts: [{arg: 'id', type: 'string'}, {arg: 'newRole', type: 'string'}],
+      returns: {arg: 'message', type: 'string'},
+      http: {status: 200},
+    }
+  );
+
 };
