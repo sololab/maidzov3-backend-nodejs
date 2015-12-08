@@ -74,10 +74,6 @@
     "dataSource": "mongodb",
     "public": true
   },
-  "ShopSeller": {
-    "dataSource": "mongodb",
-    "public": true
-  },
   "ShopWebsite": {
     "dataSource": "mongodb",
     "public": true

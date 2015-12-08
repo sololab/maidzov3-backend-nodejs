@@ -37,11 +37,6 @@
   },
   "validations": [],
   "relations": {
-    "shopSeller": {
-      "type": "belongsTo",
-      "model": "ShopSeller",
-      "foreignKey": ""
-    },
     "shopWebsites": {
       "type": "hasOne",
       "model": "ShopWebsite",
