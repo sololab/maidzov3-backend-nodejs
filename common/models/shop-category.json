@@ -27,7 +27,9 @@
       "required": true
     }
   },
-  "mixins": {"Timestamp": {"myOption": 1}},
+  "mixins": {
+    "Timestamp": true
+  },
   "validations": [],
   "relations": {
     "categories": {
