@@ -1,38 +1,31 @@
 {
-  "name": "ShopProduct",
-  "plural": "products",
+  "name": "ShopBrand",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": false
+    "validateUpsert": true
   },
   "http": {
-    "path": "shop/products"
+    "path": "shop/brands"
   },
   "mixins": {
     "TimeStamp": true
   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "slug": {
-      "type": "string",
-      "required": true
-    },
-    "image": {
       "type": "string"
     },
-    "shortDescription": {
+    "logo": {
       "type": "string"
     },
-    "fullDescription": {
+    "website": {
       "type": "string"
     },
-    "price": {
-      "type": "number",
-      "required": true
+    "description": {
+      "type": "string"
     }
   },
   "validations": [],

@@ -65,5 +65,21 @@
   "ShopProduct": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "ShopBrand": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "ShopBranch": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "ShopSeller": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "ShopWebsite": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

@@ -1,0 +1,29 @@
+{
+  "name": "ShopSeller",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "http": {
+    "path": "shop/sellers"
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "nick": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
