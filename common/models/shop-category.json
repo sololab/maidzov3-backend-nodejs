@@ -4,10 +4,13 @@
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": false
   },
   "http": {
     "path": "shop/categories"
+  },
+  "mixins": {
+    "TimeStamp": true
   },
   "properties": {
     "name": {
@@ -17,27 +20,10 @@
     "slug": {
       "type": "string",
       "required": true
-    },
-    "created": {
-      "type": "date",
-      "required": true
-    },
-    "modified": {
-      "type": "date",
-      "required": true
     }
-  },
-  "mixins": {
-    "Timestamp": true
   },
   "validations": [],
-  "relations": {
-    "categories": {
-      "type": "hasAndBelongsToMany",
-      "model": "ShopCategory",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

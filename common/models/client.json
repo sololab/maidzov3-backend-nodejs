@@ -5,6 +5,9 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "Timestamp": true
+  },
   "properties": {
     "firstName": {
       "type": "string",
@@ -23,9 +26,6 @@
     "twitter": {
       "type": "string"
     }
-  },
-  "mixins": {
-    "Timestamp": true
   },
   "validations": [],
   "relations": {},
