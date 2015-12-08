@@ -24,6 +24,9 @@
       "type": "string"
     }
   },
+  "mixins": {
+    "Timestamp": true
+  },
   "validations": [],
   "relations": {},
   "acls": [
