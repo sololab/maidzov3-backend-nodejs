@@ -54,5 +54,9 @@
   "Author": {
     "dataSource": "mysql",
     "public": true
+  },
+  "ShopCategory": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
