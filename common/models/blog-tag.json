@@ -1,12 +1,16 @@
 {
-  "name": "Tag",
+  "name": "BlogTag",
+  "plural": "tags",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
+  "http": {
+    "path": "blog/tags"
+  },
   "mixins": {
-    "Timestamp": true
+    "TimeStamp": true
   },
   "properties": {
     "name": {

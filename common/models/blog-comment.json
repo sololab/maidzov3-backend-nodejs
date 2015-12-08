@@ -1,12 +1,16 @@
 {
-  "name": "Comment",
+  "name": "BlogComment",
+  "plural": "comments",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
+  "http": {
+    "path": "blog/comments"
+  },
   "mixins": {
-    "Timestamp": true
+    "TimeStamp": true
   },
   "properties": {
     "content": {
@@ -26,7 +30,7 @@
   "relations": {
     "post": {
       "type": "belongsTo",
-      "model": "Post",
+      "model": "BlogPost",
       "foreignKey": ""
     }
   },
