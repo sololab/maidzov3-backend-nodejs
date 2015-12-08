@@ -9,6 +9,9 @@
   "http": {
     "path": "shop/categories"
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "properties": {
     "name": {
       "type": "string",
@@ -19,17 +22,8 @@
       "required": true
     }
   },
-  "mixins": {
-    "TimeStamp": true
-  },
   "validations": [],
-  "relations": {
-    "categories": {
-      "type": "hasAndBelongsToMany",
-      "model": "ShopCategory",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
