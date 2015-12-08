@@ -27,7 +27,7 @@
     "posts": {
       "type": "hasMany",
       "model": "BlogPost",
-      "foreignKey": ""
+      "foreignKey": "categoryId"
     }
   },
   "acls": [
