@@ -56,5 +56,9 @@
   "Counter": {
     "dataSource": "mongodb",
     "public": false
+  },
+  "ShopCategory": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }

@@ -1,0 +1,41 @@
+{
+  "name": "ShopCategory",
+  "plural": "categories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "http": {
+    "path": "shop/categories"
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "created": {
+      "type": "date",
+      "required": true
+    },
+    "modified": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "mixins": {"Timestamp": {"myOption": 1}},
+  "validations": [],
+  "relations": {
+    "categories": {
+      "type": "hasAndBelongsToMany",
+      "model": "ShopCategory",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
