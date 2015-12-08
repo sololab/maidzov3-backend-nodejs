@@ -1,6 +1,6 @@
 {
   "mongodb": {
-    "database": "maidzo",
+    "url": "mongodb://mongolab:mongolab@ds041164.mongolab.com:41164/maidzo",
     "name": "mongodb",
     "connector": "mongodb"
   },
