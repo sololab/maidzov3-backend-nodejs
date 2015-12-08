@@ -61,5 +61,9 @@
   "ShopCategory": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "ShopProduct": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
