@@ -36,7 +36,23 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "shopSeller": {
+      "type": "belongsTo",
+      "model": "ShopSeller",
+      "foreignKey": ""
+    },
+    "shopWebsites": {
+      "type": "hasOne",
+      "model": "ShopWebsite",
+      "foreignKey": ""
+    },
+    "shopBrands": {
+      "type": "hasOne",
+      "model": "ShopBrand",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
