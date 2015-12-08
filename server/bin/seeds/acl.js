@@ -20,9 +20,7 @@ Role.create({
       username: 'admin',
       password: '123456',
       email: 'duongtd@sololab.net',
-      emailVerified: false,
-      created: new Date(),
-      lastUpdated: new Date()
+      emailVerified: false
     }], function(err, clients) {
       role.principals.create({
       principalType: RoleMapping.USER,
