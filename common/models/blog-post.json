@@ -31,14 +31,14 @@
   },
   "validations": [],
   "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "BlogCategory",
+      "foreignKey": ""
+    },
     "tags": {
       "type": "hasMany",
       "model": "BlogTag",
-      "foreignKey": ""
-    },
-    "category": {
-      "type": "belongsTo",
-      "model": "BLogCategory",
       "foreignKey": ""
     },
     "comments": {
