@@ -1,0 +1,44 @@
+{
+  "name": "ShopBranch",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "http": {
+    "path": "shop/branches"
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "ward": {
+      "type": "number"
+    },
+    "district": {
+      "type": "number"
+    },
+    "province": {
+      "type": "number"
+    },
+    "commission_rate": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

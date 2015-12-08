@@ -1,13 +1,16 @@
 {
   "name": "ShopProduct",
   "plural": "products",
-  "http": {
-    "path": "shop/products"
-  },
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": false
+  },
+  "http": {
+    "path": "shop/products"
+  },
+  "mixins": {
+    "TimeStamp": true
   },
   "properties": {
     "name": {
@@ -32,11 +35,19 @@
       "required": true
     }
   },
-  "mixins": {
-    "TimeStamp": true
-  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "shopWebsites": {
+      "type": "hasOne",
+      "model": "ShopWebsite",
+      "foreignKey": ""
+    },
+    "shopBrands": {
+      "type": "hasOne",
+      "model": "ShopBrand",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
