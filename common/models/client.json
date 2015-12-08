@@ -1,56 +1,31 @@
 {
-  "name": "Post",
-  "base": "PersistedModel",
+  "name": "Client",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "firstName": {
       "type": "string",
       "required": true
     },
-    "slug": {
+    "lastName": {
       "type": "string",
       "required": true
     },
-    "content": {
-      "type": "string",
-      "required": true
-    },
-    "image": {
+    "about": {
       "type": "string"
     },
-    "created": {
-      "type": "date"
+    "facebook": {
+      "type": "string"
     },
-    "lastUpdated": {
-      "type": "date"
+    "twitter": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "tags": {
-      "type": "hasMany",
-      "model": "Tag",
-      "foreignKey": ""
-    },
-    "category": {
-      "type": "belongsTo",
-      "model": "Category",
-      "foreignKey": ""
-    },
-    "comments": {
-      "type": "hasMany",
-      "model": "Comment",
-      "foreignKey": ""
-    },
-    "client": {
-      "type": "belongsTo",
-      "model": "Client",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
@@ -65,23 +40,44 @@
       "permission": "ALLOW"
     },
     {
-      "accessType": "WRITE",
+      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "blogAuthor",
-      "permission": "ALLOW",
-      "property": "create"
     },
     {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "updateRole"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "updateRole"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "find"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "find"
     }
   ],
   "methods": {}

@@ -14,46 +14,48 @@
     ]
   },
   "User": {
-    "dataSource": "mysql",
-    "public": true
+    "dataSource": "mongodb",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": false
   },
   "Role": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": false
   },
   "Category": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": true
   },
   "Tag": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": true
   },
   "Post": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": true
   },
   "Comment": {
-    "dataSource": "mysql",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "Author": {
-    "dataSource": "mysql",
+    "dataSource": "mongodb",
     "public": true
+  },
+  "Client": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Counter": {
+    "dataSource": "mongodb",
+    "public": false
   },
   "ShopCategory": {
     "dataSource": "mongodb",
