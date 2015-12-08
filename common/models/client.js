@@ -20,10 +20,6 @@ module.exports = function(Client) {
     req.body.created = Date.now();
     req.body.lastUpdated = Date.now();
 
-    if (req.body.id) {
-      delete req.body['id'];
-    }
-
     // Get the counter for clientId
     var done = false;
     var tmpId = null;
@@ -58,10 +54,9 @@ module.exports = function(Client) {
       }
     );
 
+    // Increase the counter for clientId
     var counterDb = db.models.Counter;
     var tmpId = user.id;
-
-    // Increase the counter for clientId
     var done = false;
     counterDb.updateAll(
       {name: 'clientId'},
