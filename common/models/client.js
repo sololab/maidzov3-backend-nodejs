@@ -2,8 +2,15 @@ var server = require('../../server/server');
 var db = server.dataSources.mongodb;
 var deasync = require('deasync'); // for turning async function into sync
 
+function newErrorObj(msg, statusCode) {
+  statusCode = typeof statusCode !== 'undefined' ? statusCode : 400;
+  var err = new Error(msg);
+  err.status = statusCode;
+  return err;
+}
 
 module.exports = function(Client) {
+  // Hide some methods
   Client.disableRemoteMethod('createChangeStream', true);
   Client.disableRemoteMethod('__count__accessTokens', false);
   Client.disableRemoteMethod('__create__accessTokens', false);
@@ -17,24 +24,22 @@ module.exports = function(Client) {
     var counterDb = db.models.Counter;
     var req = context.req;
 
+    if (!req.body.password)
+      next(newErrorObj('Password can\'t be blank'));
+    if (req.body.password.length < 8)
+      next(newErrorObj('Password must be at least 8 characters'));
+
     req.body.created = Date.now();
     req.body.lastUpdated = Date.now();
 
-    if (req.body.id) {
-      delete req.body['id'];
-    }
-
     // Get the counter for clientId
     var done = false;
-    var tmpId = null;
     counterDb.findOne(
       {fields: ['_id', 'seq'], where: {name: 'clientId'}},
       function(err, returnedInstances) {
-        tmpId = returnedInstances._id;
         req.body.id = returnedInstances.seq;
         done = true;
-      }
-    );
+      });
     deasync.loopWhile(function(){return !done;});
 
     next();
@@ -58,10 +63,9 @@ module.exports = function(Client) {
       }
     );
 
+    // Increase the counter for clientId
     var counterDb = db.models.Counter;
     var tmpId = user.id;
-
-    // Increase the counter for clientId
     var done = false;
     counterDb.updateAll(
       {name: 'clientId'},
@@ -106,16 +110,10 @@ module.exports = function(Client) {
   Client.beforeRemote('updateRole', function(context, user, next) {
     var req = context.req;
     var err = null;
-    if (!req.body.id) {
-      err = new Error('Must specify the id of the user');
-      err.status = 400;
-      next(err);
-    }
-    else if (!req.body.newRole) {
-      err = new Error('Must specify the new role for the user');
-      err.status = 400;
-      next(err);
-    }
+    if (!req.body.id)
+      next(newErrorObj('Must specify the id of the user'));
+    else if (!req.body.newRole)
+      next(newErrorObj('Must specify the new role for the user'));
     else {
       var Client = server.models.Client;
       var Role = server.models.Role;
@@ -139,11 +137,8 @@ module.exports = function(Client) {
       Client.findOne(
         {where: {_id: parseInt(req.body.id)}},
         function(err, client) {
-          if (err || !client) {
-            err = new Error('There is no client with id ' + req.body.id);
-            err.status = 400;
-            return next(err);
-          }
+          if (err || !client)
+            return next(newErrorObj('There is no client with id ' + req.body.id));
           done = true;
         }
       );
