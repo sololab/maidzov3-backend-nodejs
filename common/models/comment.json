@@ -17,10 +17,10 @@
     "isVerified": {
       "type": "boolean",
       "required": true
-    },
-    "created": {
-      "type": "date"
     }
+  },
+  "mixins": {
+    "Timestamp": true
   },
   "validations": [],
   "relations": {

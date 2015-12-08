@@ -29,9 +29,6 @@ module.exports = function(Client) {
     if (req.body.password.length < 8)
       next(newErrorObj('Password must be at least 8 characters'));
 
-    req.body.created = Date.now();
-    req.body.lastUpdated = Date.now();
-
     // Get the counter for clientId
     var done = false;
     counterDb.findOne(

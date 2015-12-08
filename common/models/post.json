@@ -20,13 +20,10 @@
     },
     "image": {
       "type": "string"
-    },
-    "created": {
-      "type": "date"
-    },
-    "lastUpdated": {
-      "type": "date"
     }
+  },
+  "mixins": {
+    "Timestamp": true
   },
   "validations": [],
   "relations": {
