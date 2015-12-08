@@ -13,13 +13,10 @@
     "slug": {
       "type": "string",
       "required": true
-    },
-    "created": {
-      "type": "date"
-    },
-    "lastUpdated": {
-      "type": "date"
     }
+  },
+  "mixins": {
+    "Timestamp": true
   },
   "validations": [],
   "relations": {},
