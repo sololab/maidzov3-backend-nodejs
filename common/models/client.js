@@ -4,6 +4,15 @@ var deasync = require('deasync'); // for turning async function into sync
 
 
 module.exports = function(Client) {
+  Client.disableRemoteMethod('createChangeStream', true);
+  Client.disableRemoteMethod('__count__accessTokens', false);
+  Client.disableRemoteMethod('__create__accessTokens', false);
+  Client.disableRemoteMethod('__delete__accessTokens', false);
+  Client.disableRemoteMethod('__destroyById__accessTokens', false);
+  Client.disableRemoteMethod('__findById__accessTokens', false);
+  Client.disableRemoteMethod('__get__accessTokens', false);
+  Client.disableRemoteMethod('__updateById__accessTokens', false);
+
   Client.beforeRemote('create', function(context, user, next) {
     var counterDb = db.models.Counter;
     var req = context.req;
