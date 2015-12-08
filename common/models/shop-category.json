@@ -17,18 +17,10 @@
     "slug": {
       "type": "string",
       "required": true
-    },
-    "created": {
-      "type": "date",
-      "required": true
-    },
-    "modified": {
-      "type": "date",
-      "required": true
     }
   },
   "mixins": {
-    "Timestamp": true
+    "TimeStamp": true
   },
   "validations": [],
   "relations": {
