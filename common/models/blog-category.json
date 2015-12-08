@@ -1,9 +1,13 @@
 {
-  "name": "Category",
+  "name": "BlogCategory",
+  "plural": "categories",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
+  },
+  "http": {
+    "path": "blog/categories"
   },
   "mixins": {
     "TimeStamp": true
@@ -22,7 +26,7 @@
   "relations": {
     "posts": {
       "type": "hasMany",
-      "model": "Post",
+      "model": "BlogPost",
       "foreignKey": ""
     }
   },

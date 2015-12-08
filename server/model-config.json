@@ -34,29 +34,29 @@
     "dataSource": "mongodb",
     "public": false
   },
-  "Category": {
+  "Counter": {
     "dataSource": "mongodb",
-    "public": true
-  },
-  "Tag": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "Post": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "Comment": {
-    "dataSource": "mongodb",
-    "public": true
+    "public": false
   },
   "Client": {
     "dataSource": "mongodb",
     "public": true
   },
-  "Counter": {
+  "BlogCategory": {
     "dataSource": "mongodb",
-    "public": false
+    "public": true
+  },
+  "BlogPost": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "BlogTag": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "BlogComment": {
+    "dataSource": "mongodb",
+    "public": true
   },
   "ShopCategory": {
     "dataSource": "mongodb",

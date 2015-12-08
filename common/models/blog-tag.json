@@ -1,35 +1,29 @@
 {
-  "name": "Comment",
+  "name": "BlogTag",
+  "plural": "tags",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
+  "http": {
+    "path": "blog/tags"
+  },
   "mixins": {
     "TimeStamp": true
   },
   "properties": {
-    "content": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "email": {
+    "slug": {
       "type": "string",
-      "required": true
-    },
-    "isVerified": {
-      "type": "boolean",
       "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "post": {
-      "type": "belongsTo",
-      "model": "Post",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
@@ -46,7 +40,7 @@
     {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "blogAuthor",
       "permission": "ALLOW",
       "property": "create"
     },

@@ -1,9 +1,13 @@
 {
-  "name": "Post",
+  "name": "BlogPost",
+  "plural": "posts",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
+  },
+  "http": {
+    "path": "blog/posts"
   },
   "mixins": {
     "TimeStamp": true
@@ -29,17 +33,17 @@
   "relations": {
     "tags": {
       "type": "hasMany",
-      "model": "Tag",
+      "model": "BlogTag",
       "foreignKey": ""
     },
     "category": {
       "type": "belongsTo",
-      "model": "Category",
+      "model": "BLogCategory",
       "foreignKey": ""
     },
     "comments": {
       "type": "hasMany",
-      "model": "Comment",
+      "model": "BlogComment",
       "foreignKey": ""
     },
     "client": {
